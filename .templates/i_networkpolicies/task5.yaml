@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: netpol-demo3
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: trusted-ns
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: api-server
+  namespace: netpol-demo3
+  labels:
+    app: api-server
+spec:
+  containers:
+  - name: httpd
+    image: httpd:2.4

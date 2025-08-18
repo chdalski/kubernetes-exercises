@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: task8
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    test: liveness
+  name: liveness-exec
+  namespace: task8
+spec:
+  containers:
+  - name: liveness
+    image: busybox:1.37.0
+    command:
+    - /bin/sh
+    - -c
+    - rm -rf /tmp/healthy; sleep 15; touch /tmp/healthy; sleep 7200
+    livenessProbe:
+      exec:
+        command:
+        - cat
+        - /tmp/healthy
+      initialDelaySeconds: 5
+      periodSeconds: 5
+      failureThreshold: 1
+  restartPolicy: Never

@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dns-test
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: api-server
+  namespace: dns-test
+  labels:
+    app: api-server
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.25
+    ports:
+    - containerPort: 80

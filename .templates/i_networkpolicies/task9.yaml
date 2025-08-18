@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: netpol-demo7
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: restricted-pod
+  namespace: netpol-demo7
+  labels:
+    app: restricted
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.25

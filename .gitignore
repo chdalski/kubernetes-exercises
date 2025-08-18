@@ -1,0 +1,10 @@
+# ckad exercises
+/exercises/**/*.*
+/exercises/**/**
+!/exercises/*_*/
+!/exercises/**/.env.**
+!/exercises/**/verify.sh
+!/exercises/**/README.md
+
+# cluster mounts
+/.cluster/mounts/**/*.*

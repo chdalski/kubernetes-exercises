@@ -1,0 +1,39 @@
+{
+  "name": "Kubernetes Exercises",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "moby": true,
+      "installDockerBuildx": true
+    },
+    "ghcr.io/devcontainers-extra/features/kind:1": {},
+    "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+      "version": "latest",
+      "helm": "latest",
+      "minikube": "latest"
+    }
+  },
+  "mounts": [
+    {
+      "source": "${localWorkspaceFolder}/.env/.bashrc",
+      "target": "/home/vscode/.bashrc",
+      "type": "bind"
+    },
+    {
+      "source": "${localWorkspaceFolder}/.env/.vimrc",
+      "target": "/home/vscode/.vimrc",
+      "type": "bind"
+    }
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "editorconfig.editorconfig",
+        "DavidAnson.vscode-markdownlint",
+        "timonwong.shellcheck",
+        "streetsidesoftware.code-spell-checker"
+      ]
+    }
+  },
+  "onCreateCommand": "sudo apt update && sudo apt install -y vim git shellcheck && [[ -d /home/vscode/.autoenv ]] || git clone 'https://github.com/hyperupcall/autoenv' /home/vscode/.autoenv"
+}

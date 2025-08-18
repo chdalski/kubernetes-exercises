@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: database
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: db-credentials
+  namespace: database
+data:
+  password: cGFzc3dvcmQ=
+  username: YWRtaW4=

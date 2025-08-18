@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: rollout-demo
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: rolling-update-demo
+  name: rolling-update-demo
+  namespace: rollout-demo
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: rolling-update-demo
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: rolling-update-demo
+    spec:
+      containers:
+      - image: nginx:1.25
+        name: nginx
+        resources: {}
+status: {}

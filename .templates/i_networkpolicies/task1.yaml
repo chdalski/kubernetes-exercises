@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: internal
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: internal-api
+  namespace: internal
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: internal-api
+  template:
+    metadata:
+      labels:
+        app: internal-api
+    spec:
+      containers:
+      - name: api
+        image: nginx:1.25
+        ports:
+        - containerPort: 80

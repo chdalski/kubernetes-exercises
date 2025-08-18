@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: worker-deploy
+  name: worker-deploy
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: worker-deploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: worker-deploy
+    spec:
+      containers:
+      - image: nginx:1.29
+        name: nginx
+        resources: {}
+status: {}

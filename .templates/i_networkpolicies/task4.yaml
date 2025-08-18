@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: netpol-demo2
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: isolated
+  namespace: netpol-demo2
+spec:
+  containers:
+  - name: alpine
+    image: alpine:3.20
+    command: ["sleep", "28800"]
