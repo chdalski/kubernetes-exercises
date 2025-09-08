@@ -141,7 +141,7 @@ An application container called `app`, using the `alpine` image.
 It should log the current date to the file `/var/log/app.log` every 10 seconds.
 
 A sidecar container called `log-forwarder`, using a `busybox:1.34` image.
-The sidecar container should continuously run the command to tail the log file: `tail -f /var/log/app.log`.
+The sidecar container should continuously run the command to tail the log file: `tail -F /var/log/app.log`.
 
 Make sure the directory `/var/log` is persistent between containers using an `emptyDir` volume.
 
